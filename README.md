@@ -1,2 +1,1 @@
-# mingweizhang.github.io
-My Blog
+# coming soon
