@@ -68,7 +68,7 @@ ba_track_id: '2947f86ad3fd514b47ea8ec952db6082'
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "I've failed over and over and over again in my life and that is why I succeed.--MJ"
+sidebar-about-description: "#Programmer #NBAFan #NBA2K"
 sidebar-avatar: /img/avatar-parsifal.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
