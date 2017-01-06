@@ -10,13 +10,14 @@ baseurl: ""         # for example, '/blog' if your blog hosted on 'host/blog'
 
 
 # SNS settings
-RSS: false
+RSS: true
 github_username:    mingweizhang
 weibo_username:     ParsifalC
 # zhihu_username:     mingwei-zhang-79
 twitter_username:  Parsifal_C
+stackoverflow_username: users/4085281/zhangmingwei
+youtube_channel: channel/UC5M7pXoTMgNZCn5GvKeT4og
 # facebook_username:  MingWei Zhang
-
 
 
 # Build settings
