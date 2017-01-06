@@ -62,7 +62,7 @@ duoshuo_share: true                     # set to false if you want to use Commen
 ba_track_id: '2947f86ad3fd514b47ea8ec952db6082'
 # Google Analytics
 # ga_track_id: ''            # Format: UA-xxxxxx-xx
-ga_domain: izmw.me
+# ga_domain: izmw.me
 
 
 
