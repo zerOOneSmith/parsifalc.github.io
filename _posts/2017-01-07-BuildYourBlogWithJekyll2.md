@@ -6,6 +6,11 @@ date:			2017-1-7 23:00:00
 author:		"Parsifal"
 header-img:	"img/postresources/using-jekyll.jpg"
 catalog:     true
+abstract:    "- 如何用Jekyll继续修饰自己的博客   
+				- 如何将Github Pages与自己的域名绑定    
+				- 如何用自己的域名申请域名邮箱    
+				- 如何高效管理博文中的图片    
+				- 如何便利地将博客与公众号同步"
 tags:
 - 我的博客 
 - Web前端
