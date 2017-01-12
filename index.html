@@ -16,7 +16,11 @@ description: "Talk is cheap. Show me the code. "
         </h3>
         {% endif %}
         <div class="post-content-preview">
+            {% if post.abstract %}
+            {{ post.abstract | strip_html | truncate:200 }}
+            {% else %}
             {{ post.content | strip_html | truncate:200 }}
+            {% endif %}
         </div>
     </a>
     <p class="post-meta">
