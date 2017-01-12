@@ -46,7 +46,7 @@ Jekyll（音标ˈdʒɪ:kɪl）是一个简单方便的静态网站生成器，�
 
 ###### 2. 从已有的Repo fork
 {:.no_toc}	
-Github上面有个简单的官方模板[Jekyll-Repo](https://github.com/jekyll/jekyll)(当然这里也可以是其他优秀的开源repo)。如果偷懒的话，fork过来，进入Settings修改Repo name为"***your_username.github.io***"，就可以直接生成自己的Github Pages。
+Github上面有个简单的官方模板[Jekyll-Repo](https://github.com/jekyll/jekyll)(当然这里也可以是其他优秀的开源repo)。如果偷懒的话，fork过来，进入Settings修改Repo name为“***your_username.github.io***”，就可以直接生成自己的Github Pages。
 ![GithubPagesSettings_2](http://ojg3xdx9d.bkt.clouddn.com//1483858856.png)
 
 接着只要改改对应的title等信息，就可以往_posts文件夹里扔指定格式的post提交发布了。往后像维护其他Repo一样维护这个Repo就可以。再多啰嗦几句提醒：		
