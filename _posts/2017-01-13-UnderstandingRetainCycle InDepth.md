@@ -1,7 +1,7 @@
 ---
 layout:		post
 title:			"温故而知新之循环引用的那些事儿"
-subtitle:		"—— 常见的几种循环引用现象与解决方法"
+subtitle:		"——常见的几种循环引用现象与解决方法"
 date:			2017-1-13 23:00:00
 author:		"Parsifal"
 header-img:	"img/postresources/iOSDeveloper.jpg"
