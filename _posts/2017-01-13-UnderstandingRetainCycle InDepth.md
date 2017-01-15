@@ -35,6 +35,7 @@ tags:
 
 
 ## Block中的循环引用现象    
+
 #### Block的相关概念
 {:.no_toc}    
 我理解的block是加强版的函数指针（事实上，http://blog.devtang.com/blog/2013/07/28/a-look-inside-blocks/  文章中有分析到，block的数据结构中包含了一个函数指针来实现回调），很像匿名函数。通过block可以很方便的实现回调——block的一个优势就在于可以直接在调用处很直观地编写处理代码。OC里面，可以近似的把block看成一个对象，例如空Block应传值为nil，也有自己的isa指针，支持retain/release的内存管理方式等。
