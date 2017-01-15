@@ -1,7 +1,7 @@
 ---
 layout:		post
 title:			"Jekyll搭建Blog的总结(2)"
-subtitle:		"高效定制与管理你的博客"
+subtitle:		"——高效定制与管理你的博客"
 date:			2017-1-7 23:00:00
 author:		"Parsifal"
 header-img:	"img/postresources/using-jekyll.jpg"
