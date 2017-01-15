@@ -1,7 +1,7 @@
 ---
 layout:		post
 title:			"Jekyll搭建Blog的总结(1)"
-subtitle:		"Why is Jekyll"
+subtitle:		"——Why is Jekyll"
 date:			2017-1-5 22:00:00
 author:		"Parsifal"
 header-img:	"img/postresources/using-jekyll.jpg"
