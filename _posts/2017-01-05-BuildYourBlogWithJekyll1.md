@@ -6,7 +6,10 @@ date:			2017-1-5 22:00:00
 author:		"Parsifal"
 header-img:	"img/postresources/using-jekyll.jpg"
 catalog:     true
-abstract:		"Jekyll（音标ˈdʒɪ:kɪl）是一个简单方便的静态网站生成器，它通过标记语言[Markdown](https://zh.wikipedia.org/wiki/Markdown) 或[Textile](https://zh.wikipedia.org/wiki/Textile)和模板引擎[Liquid](https://zh.wikipedia.org/wiki/Liquid)将纯文本转换生成HTML网页。虽然只是静态网站，但Jekyll对于评论、标签等功能都有很好的方案。如果你喜欢混迹全球最著名的[同性交友网站](https://github.com)，应该对它不陌生。因为[Github Pages](https://pages.github.com/)就是使用的Jekyll作为引擎."
+abstract:		"- 为什么写这个系列    
+				 - 什么是Jekyll    
+				 - 如何最快速地上手Jekyll
+				 - Jekyll的相关资源"
 tags:
 - 我的博客 
 - Web前端
