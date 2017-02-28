@@ -1,7 +1,7 @@
 ---
 layout:		post
 title:			"Cocoapods的多版本管理"
-subtitle:		"按项目使用Gemfile管理Cocoapods版本"
+subtitle:		"——按项目使用Gemfile管理Cocoapods版本"
 date:			2017-1-21 23:03:50
 author:		"Parsifal"
 header-img:	"img/postresources/codingwitdog.jpg"
