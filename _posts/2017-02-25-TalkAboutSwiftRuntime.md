@@ -28,7 +28,7 @@ Swift是非常强调类型安全的一款强类型语言，苹果也十分推崇
 这在Objective-C中会使用[`isKindOfClass`](https://developer.apple.com/reference/objectivec/nsobjectprotocol/1418511-iskind#)和[`isMemberOfClass`](https://developer.apple.com/reference/objectivec/nsobjectprotocol/1418766-ismember)做判断。Swift(3.0)里同样提供了这两个方法。
 
 
-```Swift
+```swift
 func isKind(of aClass: AnyClass) -> Bool
 func isMember(of aClass: AnyClass) -> Bool
 ```
@@ -39,7 +39,7 @@ func isMember(of aClass: AnyClass) -> Bool
 
 > If an object conforms to this protocol, it can be considered a first-class object. Such an object can be asked about its:1 Class, and the place of its class in the inheritance hierarchy 2 Conformance to protocols 3 Ability to respond to a particular message.The Cocoa root class, NSObject, adopts this protocol, so all objects inheriting from NSObject have the features described by this protocol.
 
-```Swift
+```swift
 //Football 继承于 Ball
 class Ball {
     
@@ -50,7 +50,7 @@ class Football: Ball {
 }
 
 ```
-```Swift
+```swift
 func test() {
 	 //这里为了调用OC的自省方法，转为了AnyObject
     let football = Football() as AnyObject
@@ -91,7 +91,7 @@ func test() {
     }
 }
 ```
-```Swift
+```swift
 //上面的代码输出结果
 football is:Football
 football is:Ball
@@ -112,7 +112,7 @@ func responds(to aSelector: Selector!) -> Bool
 > 
 > `dynamic`主要作用是将Swift中被标记的地方使用Objective-C动态调用运行时特性，这也意味着暴露给了Objective-C。
 
-```Swift
+```swift
 class Ball {
     
     @objc var name = "name"
@@ -131,7 +131,7 @@ class Football: Ball {
     
 }
 ```
-```Swift
+```swift
 func testFunction() {
     // 转为AnyObject 调用相关的自省方法
     let football = Football() as AnyObject
@@ -150,7 +150,7 @@ func testFunction() {
     
 }
 ```
-```Swift
+```swift
 //输出结果
 ====测试是否响应某个方法====
 name
@@ -162,14 +162,14 @@ footballFunction()
 Swift中依然可以使用Objective-C的`runtime`特性给`Extension`新增属性。所用到的两个方法和Objective-C中的类似，如下：
 
 
-```Swift
+```swift
 func objc_setAssociatedObject(_ object: Any!, _ key: UnsafeRawPointer!, _ value: Any!, _ policy: objc_AssociationPolicy)
 func objc_getAssociatedObject(_ object: Any!, _ key: UnsafeRawPointer!) -> Any!
 ```
 代码实例：
 
 
-```Swift
+```swift
 private var key: Void?
 
 extension Ball {
@@ -186,7 +186,7 @@ extension Ball {
 }
 ```
 
-```Swift
+```swift
 func testAddProperty() {
     let ball = Ball()
     ball.color = .red
@@ -207,7 +207,7 @@ Objective-C中，做消息转发也是一个比较常见的黑魔法，通常会
 除了满足以上两个条件外，还必须注意到一点，必须确保方法交叉在一个`dispatch_once`中完成，因为方法交叉影响的是全局的效果，有可能会被并发执行。由于`dispatch_once`已经在Swift3.0中无法使用了，可以[替代的方案有](http://stackoverflow.com/questions/39562887/how-to-implement-method-swizzling-swift-3-0)：1）全局的变量；2）静态的`Struct`或`Enum`或`Class`。个人更推荐第二种方法，看起来代码更干净些。实例操作如下：
 
 
-```Swift
+```swift
 class TestClass: NSObject {
     
     dynamic func originalMethod() {
@@ -217,7 +217,7 @@ class TestClass: NSObject {
 }
 ```
 
-```Swift
+```swift
 extension TestClass {
     
     override class func initialize() {
@@ -259,7 +259,7 @@ extension TestClass {
 }
 ```
 
-```Swift
+```swift
 func testMethodSwizzling() {
     let test = TestClass()
     test.originalMethod()
