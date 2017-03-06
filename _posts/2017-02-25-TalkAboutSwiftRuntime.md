@@ -204,7 +204,7 @@ Objective-C中，做消息转发也是一个比较常见的黑魔法，通常会
 - Swizzling的类必须继承自NSObject，否则没有`initialize`
 - Swizzling的方法，必须是动态派发的，有`dynamic`标志
 
-除了满足以上两个条件外，还必须注意到一点，必须确保方法交叉在一个`dispatch_once`中完成，因为方法交叉影响的是全局的效果，有可能会被并发执行。由于`dispatch_once`已经在Swift3.0中无法使用了，可以[替代的方案有](http://stackoverflow.com/questions/39562887/how-to-implement-method-swizzling-swift-3-0)：1）全局的变量；2）静态的`Struct`或`Enum`或`Class`。个人更推荐第二种方法，看起来代码更干净些。实例操作如下：
+除了满足以上两个条件外，还必须注意到一点，必须确保方法交叉在一个`dispatch_once`中完成，因为方法交叉影响的是全局的效果，而`initialize`可能会被多次调用（这点可在官方文档中看到，若子类没有实现该方法或者在实现中调用了父类的该方法，都有可能使得它被多次调用）。由于`dispatch_once`已经在Swift3.0中无法使用了，可以[替代的方案有](http://stackoverflow.com/questions/39562887/how-to-implement-method-swizzling-swift-3-0)：1）全局的变量；2）静态的`Struct`或`Enum`或`Class`。个人更推荐第二种方法，看起来代码更干净些。实例操作如下：
 
 
 ```swift
