@@ -230,13 +230,16 @@ extension TestClass {
                 let originalMethod = class_getInstanceMethod(TestClass.self, originalSelector)
                 let swizzledMethod = class_getInstanceMethod(TestClass.self, swizzledSelector)
                 
-                //先向要被替换的类中添加原方法，目的是判断该类是否实现由要被替换的方法
-                //如果已经有实现了 则我们只需要exchange两个实现就可以了
-                //如果没有实现，则是在父类中实现的，我们需要replace掉刚添加的那个方法
+                //class_getInstanceMethod这个方法如果子类没有对应SEL的方法，会返回父类的方法
+                //而我们需要替换的并不是其父类的方法，要保证我们替换的是子类的方法
+                //我们需要通过class_addMethod做一下“保护”
+                //先向要被替换的类中添加原方法SEL与swizzledIMP，这样的结果有两个：添加成功和失败
+                //1.添加失败--已经有实现了 则我们只需要exchange两个实现就可以了 这时候替换的本来就是子类的方法
+                //2.添加成功--子类原本并没有实现该方法 但我们已经通过class_addMethod添加了 且也已经把SEL改成SwizzledMethodIMP了 剩下的工作就是 把swizzledSEL的IMPreplace成之前拿到的originalMethod（这里其实就是其父类的方法）
                 //class_addMethod这个方法，如果添加成功会返回true，失败返回false
                 //当然，如果是只替换我们的自定义类，由于可以看到源码，可以直接exchange，而不用多此一举的判断
                 /*
-                let didAddMethod = class_addMethod(TestClass.self, originalSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+                let didAddMethod = class_addMethod(TestClass.self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
                 
                 if didAddMethod {
                     class_replaceMethod(TestClass.self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
