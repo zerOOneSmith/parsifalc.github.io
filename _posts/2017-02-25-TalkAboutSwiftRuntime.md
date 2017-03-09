@@ -1,7 +1,7 @@
 ---
 layout:		post
-title:			"Swift的动态性的那些事儿"
-subtitle:		"记录Swift中动态性使用的Tips"
+title:			"温故而知新之Swift的动态性的那些事儿"
+subtitle:		"在Swift中runtime的运用"
 date:			2017-2-25 14:00:00
 author:		"Parsifal"
 header-img:	"img/postresources/notebook.jpg"
@@ -9,6 +9,7 @@ catalog:     true
 abstract:    "Swift是非常强调类型安全的一款强类型语言，苹果也十分推崇我们在Swift中尽可能的使用静态类型。但`Cocoa`框架最初是基于Objective-C开发的，因而我们在使用Swift开发iOS项目时候，难免会做一些动态性的东西。比如内省、动态添加属性等。Swift的动态性其实也是基于Objective-C的`runtime`机制运行的。"
 tags:
 - 侃侃技术
+- 温故而知新
 - iOS
 - Swift
 - Objective-C
@@ -20,7 +21,7 @@ tags:
 {:toc}
 
 ## 扯扯闲话
-Swift是非常强调类型安全的一款强类型语言，苹果也十分推崇我们在Swift中尽可能的使用静态类型。但`Cocoa`框架最初是基于Objective-C开发的，因而我们在使用Swift开发iOS项目时候，难免会做一些动态性的东西。比如内省、动态添加属性等。Swift的动态性其实也是基于Objective-C的`runtime`机制运行的。本文对于目前自己学习Swift过程中遇到的动态性使用做个小总结，另外再简单谈谈Swift的可选链式调用(`Optional Chaining`)来避免运行时的错误。
+这边文章将原来写的一篇OC的runtime应用做了些修改，以Swift的角度重新发布。Swift是非常强调类型安全的一款强类型语言，苹果也十分推崇我们在Swift中尽可能的使用静态类型。但`Cocoa`框架最初是基于Objective-C开发的，因而我们在使用Swift开发iOS项目时候，难免会做一些动态性的东西。比如内省、动态添加属性等。Swift的动态性其实也是基于Objective-C的`runtime`机制运行的。本文对于目前自己学习Swift过程中遇到的动态性使用做个小总结，另外再简单谈谈Swift的可选链式调用(`Optional Chaining`)来避免运行时的错误。
 
 ## 内省/自省 (Introspection)
 内省是我们开发中经常需要做的一件事。比如判断某个`id`类型的对象是否是某个类？某个`delegate`是否实现了某协议方法？这些在使用Swift开发中同样也会遇到。
