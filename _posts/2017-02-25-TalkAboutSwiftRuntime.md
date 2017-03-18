@@ -34,6 +34,23 @@ func isKind(of aClass: AnyClass) -> Bool
 func isMember(of aClass: AnyClass) -> Bool
 ```
 
+```swift
+//oc源码里的实现
+- (BOOL)isKindOf:aClass
+{
+    Class cls;
+    for (cls = isa; cls; cls = cls->superclass) 
+        if (cls == (Class)aClass)
+            return YES;
+    return NO;
+}
+
+- (BOOL)isMemberOf:aClass
+{
+    return isa == (Class)aClass;
+}
+```
+
 细心的朋友可以发现，这两个方法其实是基于`NSObjectProtocol`定义的。所以能调用这两个方法的必须是实现了`NSObjectProtocol`协议的，比如Objective-C里的`NSObject`及其子类。同样的，如果在Swift中需要调用这两个方法，也必须是属于`AnyObject`类型的。[关于`AnyObject`的可以查看喵大ONEVCAT的这篇博文](http://swifter.tips/any-anyobject/)。那么这就引申出一个问题了：Swift的一大特色就是不用每个类都要继承`NSObject`的，对于非`AnyObject`类型的对象，该怎么判断其类型呢？这里我目前有两个：1)Swift里提供有`is`关键字，这个可用于`AnyClass`，甚至可以是`Struct`或`Enum`，相当于`isKindOfClass`的作用；2)用`as AnyObject`关键字做个casting，之后就可以调用了。
 > NSObjectProtocol就是OC里NSObject协议。
 
