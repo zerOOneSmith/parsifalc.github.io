@@ -68,7 +68,7 @@ tags:
     return selfMethod != superMethod;
 }
 ```
->**Update**：这是很好的一个trick，直接判断父类获取的Method是否等于从当前类获取的Method即可。Method是一个`struct`的指针，有三个成员变量：`objc_method`、`method_types`和`method_imp`。子类若复写了父类的方法，IMP会改变为子类的IMP，Method的指针地址就相应地变了。
+>**Update**：这是很好的一个trick，直接判断父类获取的Method是否等于从当前类获取的Method即可。Method是一个`struct`的指针，有三个成员变量：`objc_method`、`method_types`和`method_imp`。子类若复写了父类的方法，IMP会改变为子类的IMP，Method的指针地址就相应地变了。[这里总结了四种方法来判断子类是否复写了父类的方法](http://izmw.me/2017/03/21/IsMethodOverride/)。
 
 2）关于桩类对象的释放问题，通过手动`objc_registerClassPair:`创建的类对象，只能通过`objc_disposeClassPair:`手动释放。这里的类对象，是否直到程序结束由系统回收，运行过程中不做释放呢（虽然占据内存也不是很大）？或者再复写`dealloc`方法，从这里做回收（这样似乎也没有必要，如果出现多次crash，就会有反复创建和销毁操作）？
 > **Answer**：这里我不是很明白为什么一定要通过objc_registerClassPair：这个方法来创建类的对象，我这边仅仅是通过alloc init来创建对象的。ARC自己会搞定一切
