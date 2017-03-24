@@ -57,6 +57,12 @@ atomic与nonatomic是属性的修饰符，atomic的线程安全是系统基于se
 
 线程模型是苹果负责处理维护的线程池，所有的队列都只能从这个池子里拿线程，开发者不直接接触线程，而是把任务扔给线程池负责处理。
 
+#### 4、为什么iOS里，UI必须在主线程更新？
+1）首先，多线程编程里，资源竞争始终是一个问题，而在UIKit这种级别的框架里，确保线程安全会是一个重大的任务，如果要做的话，成本也是非常大的。因而苹果并没有将UIKit完全做成线程安全的。早期版本，几乎所有的绘图方法都是非线程安全的，但在iOS4中苹果将大部分绘图的方法和诸如`UIColor`和`UIFont`这样的类改写为了后台线程可用。有了这个前提后，为了保证UI的绘制不出现相关的竞争问题，苹果一直提倡将UI更新写到主线程里。
+
+
+2）其次，如果在非主线程操作UI的话，其实不一定会发生崩溃，但是可能会延迟UI更新。因为苹果会将非主线程内的UI操作延迟到该子线程释放后，再从主线程里调用更新的函数栈。这时机是很不确定的。
+
 ## Runtime
 **Runtime是OC面向对象的基础，同时支持了动态特性。**
 #### 1、`+(void)load`和`+(void)initialize`有什么用处？
@@ -249,3 +255,4 @@ Binary search tree:二叉搜索树。
 - [iOS并发编程](https://github.com/ming1016/study/wiki/iOS%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B)
 - [Realm踩过的那些坑](https://www.zhihu.com/question/30298585/answer/93339976)
 - [招聘一个靠谱的iOS](https://github.com/ChenYilong/iOSInterviewQuestions)
+- [线程安全类的设计](https://objccn.io/issue-2-4/)
