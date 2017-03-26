@@ -27,7 +27,7 @@ tags:
 - 最简单高效的方法：直接判断IMP是否相等
 
 
-```swift
+```objective_c
 - (BOOL)aIsMethodOverride:(Class)cls selector:(SEL)sel {
     IMP clsIMP = class_getMethodImplementation(cls, sel);
     IMP superClsIMP = class_getMethodImplementation([cls superclass], sel);
@@ -37,7 +37,7 @@ tags:
 
 - 稍微有点麻烦的方法：判断Method是否相等，缺点在于要分别写实例方法和类方法两套逻辑
 
-```swift
+```objective_c
 //以实例方法为例
 - (BOOL)bIsMethodOverride:(Class)cls selector:(SEL)sel {
     Method clsMethod = class_getInstanceMethod(cls, sel);
@@ -48,7 +48,7 @@ tags:
 
 - 最低效的方法：把子类方法列表拷出来，遍历后一一比较
 
-```swift
+```objective_c
 - (BOOL)cIsMethodOverride:(Class)cls selector:(SEL)sel {
     u_int count = 0;
     Method *methods = class_copyMethodList(cls, &count);
@@ -73,7 +73,7 @@ tags:
 
 - 最常见但有坑的方法：这个方法经常用于做Method Swizzle里判断子类是否实现了父类方法，以避免父类方法被误伤，用于方法交叉这个场景的时候，它是合适的。但如果仅仅是判断的话，这个方法就显得有点坑了，因为你加进去的方法是无法移除的，在obcj1.0之后runtime并没有提供这个方法了。
 
-```swift
+```objective_c
 //这种方法有很大弊端 仅当开拓思维的参考 因为方法添加后无法移除
 - (BOOL)dIsMethodOverride:(Class)cls selector:(SEL)sel {
     BOOL didAddMethod = class_addMethod(cls, sel, NULL, "v@:");
