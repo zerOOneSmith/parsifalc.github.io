@@ -4,7 +4,7 @@ title:			"Think In Java Notes"
 subtitle:		"记录Java学习的一些小心得与体会"
 date:			2017-3-25 19:10:00
 author:		"Parsifal"
-header-img:	"img/postresources/core-java.jpg"
+header-img:	"img/postresources/steve.jpg"
 catalog:     true
 abstract:    "学习之路永不止~从今天开始学习Java，当然主要是为了写Android。其实在Kotlin和Java之间犹豫了挺久，但现在还是以Java为主吧，毕竟涉及面更广一些。这篇博文主要记录自己学习期间的一些心得体会。所以有可能不是很系统，更多的只是一些简短的Tip。 
 				"
