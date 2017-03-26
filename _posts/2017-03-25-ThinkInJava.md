@@ -45,7 +45,7 @@ tags:
 - [Think In Java](https://www.gitbook.com/book/quanke/think-in-java/details)
 - [第一行代码](https://github.com/robertzhai/ebooks/blob/master/android/%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E2%80%94%E2%80%94Android.pdf)
 - [ANDROID学习之路](http://stormzhang.com/android/2014/07/07/learn-android-from-rookie/)
-- [https://www.objccn.io/issue-11-1/](https://www.objccn.io/issue-11-1/)
+- [iOS 开发者的 Android 第一课](https://www.objccn.io/issue-11-1/)
 - [Android Intents](https://objccn.io/issue-11-2/)
 - [响应式 Android 应用](https://objccn.io/issue-11-3/)
 - [Android 通知中心](https://objccn.io/issue-11-4/)
