@@ -31,8 +31,12 @@ tags:
 - 如何用自己的域名申请域名邮箱    
 - 如何高效管理博文中的图片    
 - 如何便利地将博客与公众号同步    
+
+## ChangeLog
+- 补充修改代码高亮方法（2017年03月26日19:21:49）
     
 ## 如何用Jekyll对模板博客进行小修小改
+### 修改部分元素
 这个部分，我结合自己修改title的例子说。对于大部分非Web前端工程师来说，相信大家和我一样都是基于开源的Template或者Theme来搭建自己博客框架的。本站是基于[黄玄的开源模板](https://github.com/Huxpro/huxpro.github.io)搭建的，再次感谢他。个人很喜欢黄玄维护的这个模板，干净简洁，又十分大气，且已经集成了大部分博客需要的功能。     
 
 <img src="http://ojg3xdx9d.bkt.clouddn.com//468c3faf033489638cc89bdd95491e66.jpg" width="392" height="400" align="center">
@@ -58,6 +62,18 @@ tags:
 <img src="http://ojg3xdx9d.bkt.clouddn.com//1484138851.png" width="2560" height="858" align="center">    
 
 **最后**，修改完后，cmd中运行“**jekyll serve**”，本地预览下效果（http://localhost:4000/或者http://127.0.0.1:4000/）——Perfect!这样就解决了我的纠结。从整个过程来看，并不复杂。类似的需要做其他的修改也是如此。比如，**插入某个视频到主页**，直接复制该视频分享的iframe格式代码到index.html；要为博客**新增某个组件**，到对应的文件下添加即可；甚至[**修改一个主题**](http://jekyllcn.com/docs/themes/)，也很方便。即使不是很懂前端编程，也能做些小修小补。这里十分建议[本地配置好Jekyll环境](http://jekyllcn.com/docs/quickstart/)，对于调UI太方便了。
+
+### 修改代码高亮
+`Jekyll3`开始已经弃用`pygments`了，现在主流的方案是用`rouge`。本项目模板也是使用的`rouge`，可在`_config.xml`中进行配置。`rouge`提供了很多的模板，可在其开源项目库中查到。[官方地址摸我](http://rouge.jneen.net/)。
+
+```javascript
+highlighter: rouge
+```
+其开源仓库的Readme里其实也已经做了很详细的说明，选择适当的模板，然后按照以下命令生成，最后链接就可以了（默认就已经会有一个模板放在css文件夹下，你只需要直接替换即可）。
+
+```ruby
+$ rougify style monokai.sublime > syntax.css
+```
 
 ## 如何将Github Pages与自己的域名绑定    
 既然有了自己能够做主的博客，当然也会有独立域名的冲动。对于此Jekyll的支持也很棒。Github Pages的[Quick Start](https://help.github.com/articles/quick-start-setting-up-a-custom-domain/)做了很详细的说明。这里只是做个搬运工，顺便帮自己强化记忆一遍。开始之前，再简单复习一遍相关概念。详见维基百科中的解释——[域名系统](https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F#.E5.9F.9F.E5.90.8D.E8.A7.A3.E6.9E.90)
@@ -101,3 +117,4 @@ tags:
 - [Github-Quick start: Setting up a custom domain](https://help.github.com/articles/quick-start-setting-up-a-custom-domain/)
 - [知乎上关于MarkDown上插入图片的讨论](https://www.zhihu.com/question/21065229)
 - [知乎上关于公众号排版的热帖](https://www.zhihu.com/question/23640203)   
+- [Github升级Jekyll3.0-强制使用rouge语法高亮](http://gohom.win/2016/02/04/update-github-rouge/)
