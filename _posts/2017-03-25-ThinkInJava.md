@@ -37,6 +37,15 @@ tags:
 
 3）Java的方法只能作为类的一部分创建。Java是纯粹的完全面向对象的语言。因而在Java的世界中，你能写代码的地方实际都是在类中。
 
+4）Java的构造器必须与类名完全一样，可带自变量参数。
+
+```java
+public class Child extends Object {
+    Child() {
+    }
+}
+```
+
 
 
 ## 第一行代码
