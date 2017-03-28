@@ -48,7 +48,7 @@ public class Child extends Object {
 
 #### 关键概念
 1）内存回收方式
-Java的内存回收是通过垃圾收集器（Garbage Collection）进行的。GC的流程大概是这样的：先找出在堆中还活着的对象，然后释放死对象所占用的资源，最后定期调整活对象的位置。常用的GC算法有：
+Java的内存回收是通过垃圾收集器（Garbage Collector）进行的。GC的流程大概是这样的：先找出在堆中还活着的对象，然后释放死对象所占用的资源，最后定期调整活对象的位置。常用的GC算法有：
 
 - Mark-Sweep 标记清除
 - Mark-Sweep-Compact 标记-整理
