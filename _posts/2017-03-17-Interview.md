@@ -63,6 +63,31 @@ atomic与nonatomic是属性的修饰符，atomic的线程安全是系统基于se
 
 2）其次，如果在非主线程操作UI的话，其实不一定会发生崩溃，但是可能会延迟UI更新。因为苹果会将非主线程内的UI操作延迟到该子线程释放后，再从主线程里调用更新的函数栈。这时机是很不确定的。
 
+#### 5、NSRecursiveLock是什么样的锁？
+`NSRecursiveLock`是一个递归锁，主要用于循环或者多线程多次加锁的情况。`NSLock`只允许一次加锁，若加锁后未解锁，则下次加锁不会进行，会一直等待解锁操作完成。如下代码就是经典的使用`NSLock`在多条线程加锁中造成死锁的现象。这种情况下，需要用`NSRecursiveLock`替代`NSLock`。
+
+```objective-c
+NSLock *lock = [[NSLock alloc] init];
+ 
+dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+ 
+    static void (^RecursiveMethod)(int);
+ 
+    RecursiveBlock = ^(int num) {
+ 
+        [lock lock];
+        if (value > 0) {
+            NSLog(@"number = %d", num);
+            sleep(2);//做一次休眠，让第二次lock先于第一次unlock执行
+            RecursiveBlock(num - 1);
+        }
+        [lock unlock];
+    };
+ 
+    RecursiveBlock(10);
+});
+```
+
 ## Runtime
 **Runtime是OC面向对象的基础，同时支持了动态特性。**
 #### 1、`+(void)load`和`+(void)initialize`有什么用处？
