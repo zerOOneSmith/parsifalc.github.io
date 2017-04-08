@@ -27,13 +27,13 @@ tags:
 
 - 首先切换到想要更新Pod的工程目录，建立Gemfile文件，使用`bundle init`或者直接创建均可
 
-```Ruby
+```ruby
 bundle init
 ```
 
 - 编辑刚生成的Gemfile，这里我是用Sublime Text编辑的，subl是我定义的Alias，直接使用`vi Gemfile`也是一样的。编辑Gemfile文件，指定CocoaPods版本为'0.35.0'——`gem "cocoapods", '0.35.0'`
 
-```Ruby
+```ruby
 subl Gemfile
 ```
 <img src="http://ojg3xdx9d.bkt.clouddn.com//1487513656.png" width="1802" height="1146" align="center">
@@ -41,13 +41,13 @@ subl Gemfile
 - 安装需要的CocoaPods版本，这一步bundle会读取Gemfile中的Gem进行安装
 
 
-```Ruby
+```ruby
 bundle install
 ```
 
 - 最后就可以使用指定版本CocoaPods安装了。这里若直接使用`pod install`，则默认是原全局默认的CocoaPods版本安装；若使用`bundle exec pod install`则会使用Gemfile内的版本安装。
 
-```Ruby
+```ruby
 bundle exec pod install
 ```
 
