@@ -37,6 +37,7 @@ tags:
 简单语法运用：
 
 ```shell
+# 只读 删除 字符串拼接
 readonly first_name="Parsifal"
 readonly last_name="Zhang"
 full_name="$first_name $last_name"
