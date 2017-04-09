@@ -27,5 +27,34 @@ tags:
 
 **Shell Script**就是写给**Shell**执行的脚本，平常所说的**Shell**也多指代这种**Shell Script**。由于是解释型的语言，所以**Shell Script**只需要一个文本编辑器就可以编写，无需繁重的IDE支持（这里吐槽**Xcode**）。Mac下推荐**TextMate**和**Sublime Text**，都是很好用的编辑器。
 
+## Shell变量
+变量命名规则：
+> * 首个字符必须为字母（a-z，A-Z）。
+> * 中间不能有空格，可以使用下划线（_）。
+> * 不能使用标点符号。
+> * 不能使用bash里的关键字（可用help命令查看保留关键字）。
+
+简单语法运用：
+
+```shell
+readonly first_name="Parsifal"
+readonly last_name="Zhang"
+full_name="$first_name $last_name"
+echo "I'm ${full_name}"
+unset full_name
+
+#数组 字符串截取 字符串长度
+chars="abcdefghijklmnopqrstuvwxyz"
+count=${#chars}
+for (( i = 0; i < count ; i++ )); do
+	letter=${chars:$i:1}
+	array[i]=${letter}
+	echo ${array[i]}
+done
+
+echo "array count:${#array[*]} firt item length:${#array[0]}"
+```
+
+
 ## 参考资料
 - [Shell 教程](http://www.runoob.com/linux/linux-shell.html)
