@@ -27,7 +27,7 @@ tags:
 
 **Shell Script**就是写给**Shell**执行的脚本，平常所说的**Shell**也多指代这种**Shell Script**。由于是解释型的语言，所以**Shell Script**只需要一个文本编辑器就可以编写，无需繁重的IDE支持（这里吐槽**Xcode**）。Mac下推荐**TextMate**和**Sublime Text**，都是很好用的编辑器。
 
-## Shell变量
+## 变量
 变量命名规则：
 > * 首个字符必须为字母（a-z，A-Z）。
 > * 中间不能有空格，可以使用下划线（_）。
@@ -56,6 +56,36 @@ done
 echo "array count:${#array[*]} firt item length:${#array[0]}"
 ```
 
+## 传参
+传参用到的字符：
+<table border="1.0">
+<tr>
+<th>参数处理</th>
+<th>说明</th>
+</tr>
+<tr><td>`$n`</td><td>n 代表一个数字，1 为执行脚本的第一个参数，2 为执行脚本的第二个参数，以此类推……</td></tr>
+<tr><td>`$#`</td><td>传递到脚本的参数个数</td></tr>
+<tr><td>`$#`</td><td>以一个单字符串显示所有向脚本传递的参数。
+如"$*"用「"」括起来的情况、以"$1 $2 … $n"的形式输出所有参数。</td></tr>
+<tr><td>`$$`</td><td>脚本运行的当前进程ID号</td></tr>
+<tr><td>`$!`</td><td>后台运行的最后一个进程的ID号</td></tr>
+<tr><td>`$@`</td><td>与$*相同，但是使用时加引号，并在引号中返回每个参数。
+如"$@"用「"」括起来的情况、以"$1" "$2" … "$n" 的形式输出所有参数。</td></tr>
+<tr><td>`$-`</td><td> 显示Shell使用的当前选项，与set命令功能相同。</td></tr>
+<tr><td>`$?`</td><td>显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。</td></tr>
+</table>
+
+```shell
+#!/bin/bash
+echo "这是个shell script:$0"
+inputCount=$#
+echo "你输入的参数个数有：${inputCount}"
+echo "它们是：$*"
+
+for i in "$@"; do
+	echo "${i}"
+done
+```
 
 ## 参考资料
 - [Shell 教程](http://www.runoob.com/linux/linux-shell.html)
