@@ -87,5 +87,20 @@ for i in "$@"; do
 done
 ```
 
+## 数组
+**Bash Shell**只支持一维数组，并不支持多维数组。
+
+```shell
+#!/bin/bash
+array=(a b c d e f g)
+
+echo "item count:${#array[*]}"
+echo "items:${array[*]}"
+
+for item in ${array[@]}; do
+	echo "item:${item}"
+done
+```
+
 ## 参考资料
 - [Shell 教程](http://www.runoob.com/linux/linux-shell.html)
