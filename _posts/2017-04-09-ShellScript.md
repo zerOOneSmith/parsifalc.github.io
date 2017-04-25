@@ -352,6 +352,96 @@ echo "Uptime is $UPDATETIME"
 </tr>
 </tbody>
 </table>
+
+## 条件语句
+
+**if条件语句：**
+
+**1）if ... else语句：**
+
+```shell
+if [ expression ]
+then
+   Statement(s) to be executed if expression is true
+fi
+```
+
+**2) if ... else ... fi 语句：**
+
+```shell
+if [ expression ]
+then
+   Statement(s) to be executed if expression is true
+else
+   Statement(s) to be executed if expression is not true
+fi
+```
+
+**3) if ... elif ... fi 语句：**
+
+```shell
+if [ expression 1 ]
+then
+   Statement(s) to be executed if expression 1 is true
+elif [ expression 2 ]
+then
+   Statement(s) to be executed if expression 2 is true
+elif [ expression 3 ]
+then
+   Statement(s) to be executed if expression 3 is true
+else
+   Statement(s) to be executed if no expression is true
+fi
+```
+
+**case esac条件语句：**
+
+```shell
+case 值 in
+模式1)
+    command1
+    command2
+    command3
+    ;;
+模式2）
+    command1
+    command2
+    command3
+    ;;
+*)
+    command1
+    command2
+    command3
+    ;;
+esac
+```
+
+## 循环控制语句
+
+**for in循环语句：**
+
+```shell
+for 变量 in 列表
+do
+    command1
+    command2
+    ...
+    commandN
+done
+```
+
+**while循环语句：**
+
+```shell
+while command
+do
+   Statement(s) to be executed if command is true
+done
+```
+
+
+
+
 ## 参考资料
 - [Shell 教程](http://www.runoob.com/linux/linux-shell.html)
 - [Shell学习笔记](http://www.cnblogs.com/maybe2030/p/5022595.html)
