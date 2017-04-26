@@ -439,7 +439,40 @@ do
 done
 ```
 
+## Shell函数
+**Shell**函数的定义格式如下：
 
+```shell
+function_name () {
+    list of commands
+    [ return value ]
+}
+```
+
+函数返回值，可以显式增加return语句；如果不加，会将最后一条命令运行结果作为返回值。**Shell**函数返回值只能是整数，一般用来表示函数执行成功与否，0表示成功，其他值表示失败。如果**return**其他数据，比如一个字符串，往往会得到错误提示：“numeric argument required”。如果一定要让函数返回字符串，那么可以先定义一个变量，用来接收函数的计算结果，脚本在需要的时候访问这个变量来获得函数返回值。
+
+在Shell中，调用函数时可以向其传递参数。在函数体内部，通过 n的形式来获取参数的值，例如，n的形式来获取参数的值，例如，1表示第一个参数，$2表示第二个参数...
+<table border="1px">
+<tbody>
+<tr><th>特殊变量</span></th><th>说明</th></tr>
+<tr>
+<td>`$#`</td>
+<td>传递给函数的参数个数。</td>
+</tr>
+<tr>
+<td>`$*`</td>
+<td>显示所有传递给函数的参数。</td>
+</tr>
+<tr>
+<td>`$@`</td>
+<td>与$*相同，但是略有区别，请查看<a href="http://c.biancheng.net/cpp/view/2739.html" target="_blank">Shell特殊变量</a>。</td>
+</tr>
+<tr>
+<td>`$?`</td>
+<td>函数的返回值。</td>
+</tr>
+</tbody>
+</table>
 
 
 ## 参考资料
