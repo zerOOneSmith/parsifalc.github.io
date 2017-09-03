@@ -2,7 +2,7 @@
 layout:		post
 title:			"Where There Is A Shell,There Is A Way!"
 subtitle:		"Shell学习笔记"
-date:			2017-4-7 23:00:00
+date:			2017-4-28 23:00:00
 author:		"Parsifal"
 header-img:	"img/postresources/linux-shell-scripting.png"
 catalog:     true
