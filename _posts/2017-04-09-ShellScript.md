@@ -502,6 +502,13 @@ enumerateFile(){
 totalOriginalSize=$(echo "scale=2;$totalOriginalSize / 1204"|bc)
 ```
 
+#### 按指定分隔符格式化输出表格
+
+```shell
+#按 '|' 分隔输出指定文件里的数据
+column -ts '|' ~/desktop/ThiningRepot.txt
+```
+
 ## 参考资料
 - [Shell 教程](http://www.runoob.com/linux/linux-shell.html)
 - [Shell学习笔记](http://www.cnblogs.com/maybe2030/p/5022595.html)
