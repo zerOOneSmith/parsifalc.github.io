@@ -496,6 +496,12 @@ enumerateFile(){
 }
 ```
 
+#### 使用 bc 进行浮点数计算
+
+```shell
+totalOriginalSize=$(echo "scale=2;$totalOriginalSize / 1204"|bc)
+```
+
 ## 参考资料
 - [Shell 教程](http://www.runoob.com/linux/linux-shell.html)
 - [Shell学习笔记](http://www.cnblogs.com/maybe2030/p/5022595.html)
