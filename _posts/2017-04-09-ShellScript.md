@@ -474,6 +474,27 @@ function_name () {
 </tbody>
 </table>
 
+## 常用的便利方法
+
+#### 遍历传入的路径下所有目录和文件夹
+
+```shell
+enumerateFile(){
+	echo $1
+	for file in $(ls $1)
+	do 
+		localPath="$1/$file"
+		echo "$localPath"
+
+		if [[ -d $localPath ]]; then
+			echo "directory"
+			enumerateFile $localPath
+		else
+			enumerateFile $localPath
+		fi
+	done
+}
+```
 
 ## 参考资料
 - [Shell 教程](http://www.runoob.com/linux/linux-shell.html)
