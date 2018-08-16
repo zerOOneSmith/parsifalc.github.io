@@ -496,10 +496,16 @@ enumerateFile(){
 }
 ```
 
-#### 使用 bc 进行浮点数计算
+#### 使用 `bc` 进行浮点数计算
 
 ```shell
 totalOriginalSize=$(echo "scale=2;$totalOriginalSize / 1204"|bc)
+```
+
+#### 使用 `expr` 进行整数计算
+
+```shell
+totalOriginalSize=$(expr $totalOriginalSize + $originalSize)
 ```
 
 #### 按指定分隔符格式化输出表格
